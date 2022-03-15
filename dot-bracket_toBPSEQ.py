@@ -1,0 +1,1 @@
+# script for converting dot-bracket file to BPSEQ
