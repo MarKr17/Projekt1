@@ -22,7 +22,6 @@ f= open("dot-brackets//1ET4-A.dbn","r")
 bases=f.readline()
 chars=f.readline()
 f.close()
-
 print(bases)
 print()
 print(chars)
