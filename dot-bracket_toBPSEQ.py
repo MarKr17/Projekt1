@@ -1,6 +1,6 @@
 # script for converting dot-bracket file to BPSEQ
-opening_brackets=['(','[','{']
-closing_brackets=[')',']','}']
+opening_brackets=['(','[','{','<']
+closing_brackets=[')',']','}','>']
 def finding_pairs(chars):
 	pairs=[]
 	pair=[]
@@ -29,20 +29,20 @@ def Bpseq(chars, bases):
 	pairs=finding_pairs(chars)
 	bpseq=[]
 	line =""
-	for i in (range(len(chars))):
+	for i in (range(len(chars)-1)):
+		y=i
+		x=0
 		for pair in pairs:
 			if pair[0] == i:
 				x=pair[1]+1
 			elif pair[1] ==i:
 				x=pair[0]+1
-			else:
-				x=0
 		line="{} {} {}".format(i+1, bases[i], x)
 		bpseq.append(line)
 
 	return bpseq
 
-f= open("dot-brackets//1ET4-A.dbn","r")
+f= open("dot-brackets//3IGI-A.dbn","r")
 bases=f.readline()
 chars=f.readline()
 f.close()
@@ -56,9 +56,8 @@ print(pairs)
 
 print()
 bpseq=Bpseq(chars, bases)
-print(bpseq)
 
-f= open("bp_seq.txt", "w")
+f= open("3IGI-A.bpseq", "w")
 for line in bpseq:
 	f.write(line+"\n")
 f.close()
