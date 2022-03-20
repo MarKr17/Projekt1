@@ -42,7 +42,7 @@ def Bpseq(chars, bases):
 
 	return bpseq
 
-f= open("dot-brackets//3IGI-A.dbn","r")
+f= open("dot-brackets//1ET4-A.dbn","r")
 bases=f.readline()
 chars=f.readline()
 f.close()
@@ -57,7 +57,7 @@ print(pairs)
 print()
 bpseq=Bpseq(chars, bases)
 
-f= open("3IGI-A.bpseq", "w")
+f= open("bpseqs//1ET4-A.bpseq", "w")
 for line in bpseq:
 	f.write(line+"\n")
 f.close()
